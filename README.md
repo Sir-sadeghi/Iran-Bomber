@@ -8,9 +8,5 @@ t.me/mr_sadeghl
 
 ```  cd Iran-Bomber```
 
-```  pip install -r requirements.txt```
-
-```  python bomber.py +989xxxxxxxxx --threads 10 --proxies```
-
-```bomber.py```
+```python2 PyBomber```
 
